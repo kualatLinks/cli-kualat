@@ -1,0 +1,49 @@
+{
+	"name": "@kualat/cli",
+	"version": "0.1.0",
+	"description": "Command line for kua.lat: forward webhook deliveries to localhost, shorten links, and manage webhook subscriptions from the terminal.",
+	"keywords": [
+		"kualat",
+		"kua.lat",
+		"cli",
+		"webhooks",
+		"url-shortener"
+	],
+	"license": "MIT",
+	"homepage": "https://kua.lat",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kualatLinks/cli-kualat.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kualatLinks/cli-kualat/issues"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"bin": {
+		"kualat": "dist/cli.js"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"lint": "tsc --noEmit",
+		"test": "node --test tests/cli.test.mjs",
+		"check": "npm run build && npm run test",
+		"prepublishOnly": "npm run lint && npm run check"
+	},
+	"dependencies": {
+		"@kualat/sdk": "^0.1.0",
+		"@kualat/webhooks": "^0.1.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.19.43",
+		"typescript": "^5.5.4"
+	}
+}
